@@ -7,5 +7,5 @@
 - condicionales
 - slices
 - iteraciones
-
+- imports
 - aplicación de prueba
