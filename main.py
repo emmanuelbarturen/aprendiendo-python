@@ -1,7 +1,9 @@
 import sys
+import copy
 
 print('Aprendiendo Python3')
 clients = 'ronny,renzo,paul'
+print(id(clients))  # puntero de memoria
 print('Valor de variable: ' + clients)
 
 print('*' * 25 + ' FUNCIONES ' + '*' * 25)
@@ -15,7 +17,7 @@ def separator(title='', character='*'):
 
 
 # help(separator)
-
+# FUNCIONES ###########################################################################################################
 
 def create_client(client_name):  # Convención 2 espacios entre funciones
     global clients  # para traer una variable a entorno local
@@ -111,7 +113,7 @@ def first_application():
         print('Comando desconocido')
 
 
-separator('CONDICIONALES')
+separator('CONDICIONALES')  ###########################################################################################
 x = 2  # asignación de variables
 y = 3
 
@@ -120,7 +122,7 @@ if x < y:  # comparación simple
 else:
     print('x no es menor que y')
 
-separator('JUGANDO CON STRINGS (CADENAS)')
+separator('JUGANDO CON STRINGS (CADENAS)')  ###########################################################################
 country = 'Perú'
 print('Mostrando una posición específica de la palabra: ' + country)
 print(country[3])  # Muestra el caracter ú de la palabra Perú
@@ -132,7 +134,7 @@ print(dir(country))  # Muestra todas las funciones que pueden ser aplicadas.
 # Las que tienen subguión permiten modificar como python se ejecuta
 # las que no tienen subguión se pueden aplicar normalmente
 
-separator('SLICES')  # Rebanadas
+separator('SLICES')  # Rebanadas ######################################################################################
 word = 'ferrocarril'
 print(word[1:4])  # toma desde la posición 0 hasta el 4, en este caso "err"
 print(word[1:8])  # toma desde la posición 1 hasta el 8, en este caso "errcar"
@@ -140,7 +142,7 @@ print(word[::-1])  # toma desde la posición 0 hasta el final en pasos de 1 en r
 print(word[:8:3])  # toma desde la posición 0 hasta el 8, en pasos de 3 en 3
 print(word[::2])  # toma desde la posición 0 hasta el final, en pasos de 2 en 2
 
-separator('ITERACIONES')
+separator('ITERACIONES')  #############################################################################################
 print('iteración con for de 5 elementos')
 for i in range(5):  # range genera una secuencia de números
     print(i)
@@ -150,7 +152,22 @@ while n > 0:
     print(n)
     n -= 1
 
-separator('APLICACIÓN PRINCIPAL')
+separator('LISTAS')  ##################################################################################################
+countries = ['Mexico', 'Perú', 'Argentina']
+print(countries)
+ages = [12, 18, 24, 34, 50]
+countries[0] = 'Ecuador'  # Reasignación de un valor
+print(countries)
+
+global_countries = countries  # se genera un alias, cualquier modificación en contries se refleja en global_countries
+countries[0] = 'Chile'
+print(global_countries)
+
+global_countries_copy = copy.copy(countries)  # hace una copia exacta de la lista en otro punto de memoria
+countries[0] = 'Colombia'
+print(global_countries_copy)
+
+separator('APLICACIÓN PRINCIPAL')  ####################################################################################
 
 if __name__ == '__main__':
     first_application()
